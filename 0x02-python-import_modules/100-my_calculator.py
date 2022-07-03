@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 # 100-my_calculator.py
 
