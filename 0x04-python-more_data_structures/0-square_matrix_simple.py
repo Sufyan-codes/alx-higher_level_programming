@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# 0-square_matrix_simple.py 
+# 0-square_matrix_simple.py
 
 
 def square_matrix_simple(matrix=[]):
