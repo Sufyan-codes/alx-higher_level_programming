@@ -1,24 +1,37 @@
 #!/usr/bin/python3
-# 11-student.py
- 
-"""Defines a class Student."""
+"""json"""
 
 
 class Student:
-    """Represent a student."""
+    """A student."""
 
     def __init__(self, first_name, last_name, age):
-        """Initialize a new Student.
-
-        Args:
-            first_name (str): The first name of the student.
-            last_name (str): The last name of the student.
-            age (int): The age of the student.
-        """
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
-    def to_json(self):
-        """Get a dictionary representation of the Student."""
-        return self.__dict__
+    def to_json(self, attrs=None):
+        """Retrieve a dictionary representation of a Student instance."""
+        if attrs is not None and all(isinstance(x, str) for x in attrs):
+            d = {}
+            for k, v in self.__dict__.items():
+                if k in attrs:
+                    d[k] = v
+            return d
+        else:
+            return self.__dict__
+
+    def reload_from_json(self, json):
+        values = json
+        try:
+            self.first_name = values["first_name"]
+        except Exception:
+            pass
+        try:
+            self.last_name = values["last_name"]
+        except Exception:
+            pass
+        try:
+            self.age = values["age"]
+        except Exception:
+            pass
