@@ -1,4 +1,3 @@
-Bytes
 #!/usr/bin/python3
 """load json"""
 import json
